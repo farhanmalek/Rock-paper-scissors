@@ -25,14 +25,13 @@ function game() {
     let userWin = 0;
     let compWin = 0;
     let tieCount = 0;
+    let playerSelection;
 
     for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("Enter your choice: ");
-        
-        if (!["rock", "paper", "scissors"].includes(playerSelection.toLowerCase())) {
-            console.log("ERROR: Invalid value! Reload the page!");
-            return;
-        }
+
+        do {
+            playerSelection = prompt("Enter your choice: ");
+        } while (!["rock", "paper", "scissors"].includes(playerSelection.toLowerCase()));
 
         const computerSelection = getComputerChoice();
         const result = playRound(playerSelection, computerSelection);
